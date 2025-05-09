@@ -27,8 +27,6 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -76,58 +74,13 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+.ipynb_checkpoints/ # Ensure the trailing slash if it's a directory pattern
 
 # IPython
 profile_default/
 ipython_config.py
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
-
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
-
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
-.pdm.toml
-.pdm-python
-.pdm-build/
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
+# Environments (ensure 'henv/' is uncommented if it's inside your project dir)
 .env
 .venv
 env/
@@ -135,6 +88,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+henv/ # Your specific conda environment folder if it's inside the project
 
 # Spyder project settings
 .spyderproject
@@ -144,7 +98,7 @@ venv.bak/
 .ropeproject
 
 # mkdocs documentation
-/site
+/site/
 
 # mypy
 .mypy_cache/
@@ -155,20 +109,36 @@ dmypy.json
 .pyre/
 
 # pytype static type analyzer
-.pytype/
+.type/
 
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+# VS Code
+.vscode/
 
-# Ruff stuff:
-.ruff_cache/
+# Operating System specific
+.DS_Store
+Thumbs.db
 
-# PyPI configuration file
-.pypirc
+# --- YOUR PROJECT SPECIFIC IGNORES ---
+# Google Cloud SDK
+google-cloud-sdk/
+google-cloud-cli-*.tar.gz
+
+# Large Data Files
+*.feather
+*.csv
+*.npy
+*.npz
+# If you put data in a subdirectory:
+# data/
+
+# Model Outputs and Analysis Outputs
+*.pth
+*.keras
+*.h5
+pytorch_lstm_model_output/
+vae_model_output/
+analysis_lstm_vae_output/
+diffusion_model_output/ # For your next model
